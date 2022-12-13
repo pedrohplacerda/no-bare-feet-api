@@ -52,6 +52,9 @@ public class UsuariosController {
             if (Objects.nonNull(usuario.getDataNascimento())) {
                 usuarioASerAlterado.setDataNascimento(usuario.getDataNascimento());
             }
+            if (Objects.nonNull(usuario.getTelefone())) {
+                usuarioASerAlterado.setTelefone(usuario.getTelefone());
+            }
             return repository.save(usuarioASerAlterado);
         }
         return null;

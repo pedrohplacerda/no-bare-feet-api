@@ -41,4 +41,7 @@ public class Usuario {
     @Column(name = "porcentagem_satisfacao")
     private Integer porcentagemSatisfacao;
 
+    @Column(name = "telefone")
+    private Integer telefone;
+
 }
