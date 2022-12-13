@@ -42,6 +42,6 @@ public class Usuario {
     private Integer porcentagemSatisfacao;
 
     @Column(name = "telefone")
-    private Integer telefone;
+    private String telefone;
 
 }
