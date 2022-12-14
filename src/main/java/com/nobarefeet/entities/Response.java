@@ -9,4 +9,6 @@ import org.springframework.http.HttpStatus;
 public class Response {
     private HttpStatus status;
     private String mensagem;
+    private String nomeUsuario;
+    private Integer id;
 }

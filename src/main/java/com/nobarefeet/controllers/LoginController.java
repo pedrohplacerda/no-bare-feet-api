@@ -27,6 +27,7 @@ public class LoginController {
 
     @PostMapping(value = "/login")
     public Response post(@RequestBody UsuarioModel usuarioModel) {
+        UsuarioModel usuario = repository.findAllByNome(usuarioModel.getNome());
         try {
             if (repository.existsByNomeAndSenha(usuarioModel.getNome(), usuarioModel.getSenha())) {
                 String jwtToken = Jwts.builder()
@@ -36,12 +37,12 @@ public class LoginController {
                         .signWith(CHAVE)
                         .compact();
 
-                return new Response(HttpStatus.OK, jwtToken);
+                return new Response(HttpStatus.OK, jwtToken, usuarioModel.getNome(), usuario.getId());
             } else {
-                return new Response(HttpStatus.UNAUTHORIZED, "Usuário e/ou senha inválidos.");
+                return new Response(HttpStatus.UNAUTHORIZED, "Usuário e/ou senha inválidos.", usuario.getNome(), usuario.getId());
             }
         } catch (Exception e) {
-            return new Response(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+            return new Response(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), usuarioModel.getNome(), usuario.getId());
         }
 
     }
