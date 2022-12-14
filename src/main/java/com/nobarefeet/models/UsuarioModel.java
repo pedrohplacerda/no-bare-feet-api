@@ -14,7 +14,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public class UsuarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -37,5 +37,8 @@ public class Usuario {
 
     @Column(name = "telefone")
     private String telefone;
+
+    @Column(name = "senha")
+    private String senha;
 
 }

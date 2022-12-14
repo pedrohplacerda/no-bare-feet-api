@@ -1,6 +1,6 @@
 package com.nobarefeet.controllers;
 
-import com.nobarefeet.models.Anuncio;
+import com.nobarefeet.models.AnuncioModel;
 import com.nobarefeet.repositories.AnuncioRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,16 +19,16 @@ public class AnunciosController {
 
     @PostMapping(value = "/anuncios")
     @ResponseStatus(HttpStatus.CREATED)
-    public Anuncio criarAnuncio(Anuncio anuncio) {
-        Anuncio anuncioSalvo = repository.save(anuncio);
+    public AnuncioModel criarAnuncio(AnuncioModel anuncioModel) {
+        AnuncioModel anuncioModelSalvo = repository.save(anuncioModel);
         log.info("Anuncio criado com sucesso.");
-        return anuncioSalvo;
+        return anuncioModelSalvo;
     }
 
     @GetMapping(value = "/anuncios")
-    public List<Anuncio> buscarAnunciosAtivos() {
-        List<Anuncio> anuncioList = repository.findAll();
-        return anuncioList.stream().filter(Anuncio::getAtivo).collect(Collectors.toList());
+    public List<AnuncioModel> buscarAnunciosAtivos() {
+        List<AnuncioModel> anuncioModelList = repository.findAll();
+        return anuncioModelList.stream().filter(AnuncioModel::getAtivo).collect(Collectors.toList());
     }
 
     @DeleteMapping(value = "/anuncios/{id}")
@@ -40,20 +40,20 @@ public class AnunciosController {
 
     @PutMapping(value = "/anuncios/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Anuncio editarUsuario(@PathVariable("id") Integer id, @RequestBody Anuncio anuncio) {
+    public AnuncioModel editarUsuario(@PathVariable("id") Integer id, @RequestBody AnuncioModel anuncioModel) {
         var optionalAnuncio = repository.findById(id);
-        if(optionalAnuncio.isPresent()) {
-            Anuncio anuncioASerAlterado = optionalAnuncio.get();
-            if (Objects.nonNull(anuncio.getTitulo())) {
-                anuncioASerAlterado.setTitulo(anuncio.getTitulo());
+        if (optionalAnuncio.isPresent()) {
+            AnuncioModel anuncioModelASerAlterado = optionalAnuncio.get();
+            if (Objects.nonNull(anuncioModel.getTitulo())) {
+                anuncioModelASerAlterado.setTitulo(anuncioModel.getTitulo());
             }
-            if (Objects.nonNull(anuncio.getAtivo())) {
-                anuncioASerAlterado.setAtivo(anuncio.getAtivo());
+            if (Objects.nonNull(anuncioModel.getAtivo())) {
+                anuncioModelASerAlterado.setAtivo(anuncioModel.getAtivo());
             }
-            if (Objects.nonNull(anuncio.getDescricao())) {
-                anuncioASerAlterado.setDescricao(anuncio.getDescricao());
+            if (Objects.nonNull(anuncioModel.getDescricao())) {
+                anuncioModelASerAlterado.setDescricao(anuncioModel.getDescricao());
             }
-            return repository.save(anuncioASerAlterado);
+            return repository.save(anuncioModelASerAlterado);
         }
         return null;
     }

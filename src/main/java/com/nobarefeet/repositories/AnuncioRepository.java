@@ -1,9 +1,9 @@
 package com.nobarefeet.repositories;
 
-import com.nobarefeet.models.Anuncio;
+import com.nobarefeet.models.AnuncioModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AnuncioRepository extends JpaRepository<Anuncio, Integer> {
+public interface AnuncioRepository extends JpaRepository<AnuncioModel, Integer> {
 }

@@ -1,6 +1,6 @@
 package com.nobarefeet.controllers;
 
-import com.nobarefeet.models.Usuario;
+import com.nobarefeet.models.UsuarioModel;
 import com.nobarefeet.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,9 +15,9 @@ public class UsuariosController {
 
     @PostMapping(value = "/usuarios")
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario saveUsuario(@RequestBody Usuario usuario) {
-        repository.save(usuario);
-        return usuario;
+    public UsuarioModel saveUsuario(@RequestBody UsuarioModel usuarioModel) {
+        repository.save(usuarioModel);
+        return usuarioModel;
     }
 
     @DeleteMapping(value = "/usuarios/{id}")
@@ -30,26 +30,26 @@ public class UsuariosController {
 
     @PutMapping(value = "/usuarios/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Usuario editarUsuario(@PathVariable("id") Integer id, @RequestBody Usuario usuario) {
+    public UsuarioModel editarUsuario(@PathVariable("id") Integer id, @RequestBody UsuarioModel usuarioModel) {
         var optionalUsuario = repository.findById(id);
-        if(optionalUsuario.isPresent()) {
-            Usuario usuarioASerAlterado = optionalUsuario.get();
-            if (Objects.nonNull(usuario.getNome())) {
-                usuarioASerAlterado.setNome(usuario.getNome());
+        if (optionalUsuario.isPresent()) {
+            UsuarioModel usuarioModelASerAlterado = optionalUsuario.get();
+            if (Objects.nonNull(usuarioModel.getNome())) {
+                usuarioModelASerAlterado.setNome(usuarioModel.getNome());
             }
-            if (Objects.nonNull(usuario.getCep())) {
-                usuarioASerAlterado.setCep(usuario.getCep());
+            if (Objects.nonNull(usuarioModel.getCep())) {
+                usuarioModelASerAlterado.setCep(usuarioModel.getCep());
             }
-            if (Objects.nonNull(usuario.getEmail())) {
-                usuarioASerAlterado.setEmail(usuario.getEmail());
+            if (Objects.nonNull(usuarioModel.getEmail())) {
+                usuarioModelASerAlterado.setEmail(usuarioModel.getEmail());
             }
-            if (Objects.nonNull(usuario.getDataNascimento())) {
-                usuarioASerAlterado.setDataNascimento(usuario.getDataNascimento());
+            if (Objects.nonNull(usuarioModel.getDataNascimento())) {
+                usuarioModelASerAlterado.setDataNascimento(usuarioModel.getDataNascimento());
             }
-            if (Objects.nonNull(usuario.getTelefone())) {
-                usuarioASerAlterado.setTelefone(usuario.getTelefone());
+            if (Objects.nonNull(usuarioModel.getTelefone())) {
+                usuarioModelASerAlterado.setTelefone(usuarioModel.getTelefone());
             }
-            return repository.save(usuarioASerAlterado);
+            return repository.save(usuarioModelASerAlterado);
         }
         return null;
     }
