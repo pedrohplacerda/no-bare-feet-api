@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -19,11 +18,6 @@ public class UsuariosController {
     public Usuario saveUsuario(@RequestBody Usuario usuario) {
         repository.save(usuario);
         return usuario;
-    }
-
-    @GetMapping("/usuarios")
-    public List<Usuario> getUsuarios() {
-        return repository.findAll();
     }
 
     @DeleteMapping(value = "/usuarios/{id}")

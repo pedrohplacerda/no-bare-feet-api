@@ -49,6 +49,10 @@ public class Anuncio {
     @Column(name = "ativo")
     private Boolean ativo;
 
+    @Column(name = "titulo")
+    private String titulo;
 
+    @Column(name = "nome_anunciante")
+    private String nomeAnunciante;
 
 }

@@ -35,12 +35,6 @@ public class Usuario {
     @Column(name = "cep")
     private Integer cep;
 
-    @Column(name = "num_de_vendas")
-    private Integer numDeVendas;
-
-    @Column(name = "porcentagem_satisfacao")
-    private Integer porcentagemSatisfacao;
-
     @Column(name = "telefone")
     private String telefone;
 
