@@ -47,7 +47,7 @@ public class AnuncioModel {
     private String infoVendedor;
 
     @Column(name = "ativo")
-    private Boolean ativo;
+    private Integer ativo;
 
     @Column(name = "titulo")
     private String titulo;

@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @Table(name = " tb_usuario")
@@ -24,7 +23,7 @@ public class UsuarioModel {
     private String nome;
 
     @Column(name = "data_nascimento")
-    private Date dataNascimento;
+    private String dataNascimento;
 
     @Column(name = "email")
     private String email;
@@ -33,7 +32,7 @@ public class UsuarioModel {
     private String cpfCnpj;
 
     @Column(name = "cep")
-    private Integer cep;
+    private String cep;
 
     @Column(name = "telefone")
     private String telefone;

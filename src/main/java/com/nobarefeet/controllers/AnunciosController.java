@@ -28,7 +28,7 @@ public class AnunciosController {
     @GetMapping(value = "/anuncios")
     public List<AnuncioModel> buscarAnunciosAtivos() {
         List<AnuncioModel> anuncioModelList = repository.findAll();
-        return anuncioModelList.stream().filter(AnuncioModel::getAtivo).collect(Collectors.toList());
+        return anuncioModelList.stream().filter(anuncioModel -> Objects.equals(anuncioModel.getAtivo(), 1)).collect(Collectors.toList());
     }
 
     @DeleteMapping(value = "/anuncios/{id}")
