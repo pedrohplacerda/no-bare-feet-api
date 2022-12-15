@@ -43,8 +43,8 @@ public class AnuncioModel {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "info_vendedor")
-    private String infoVendedor;
+    @Column(name = "preco")
+    private String preco;
 
     @Column(name = "ativo")
     private Integer ativo;
@@ -55,4 +55,18 @@ public class AnuncioModel {
     @Column(name = "nome_anunciante")
     private String nomeAnunciante;
 
+    @Column(name = "img1")
+    private String img1;
+
+    @Column(name = "img2")
+    private String img2;
+
+    @Column(name = "img3")
+    private String img3;
+
+    @Column(name = "img4")
+    private String img4;
+
+    @Column(name = "aceita_troca")
+    private Integer aceitaTroca;
 }
