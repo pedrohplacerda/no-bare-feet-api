@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
@@ -47,6 +48,7 @@ public class AnuncioModel {
     private String preco;
 
     @Column(name = "ativo")
+    @Nullable
     private Integer ativo;
 
     @Column(name = "titulo")

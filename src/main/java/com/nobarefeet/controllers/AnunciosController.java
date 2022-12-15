@@ -19,7 +19,7 @@ public class AnunciosController {
 
     @PostMapping(value = "/anuncios")
     @ResponseStatus(HttpStatus.CREATED)
-    public AnuncioModel criarAnuncio(AnuncioModel anuncioModel) {
+    public AnuncioModel criarAnuncio(@RequestBody AnuncioModel anuncioModel) {
         AnuncioModel anuncioModelSalvo = repository.save(anuncioModel);
         log.info("Anuncio criado com sucesso.");
         return anuncioModelSalvo;
