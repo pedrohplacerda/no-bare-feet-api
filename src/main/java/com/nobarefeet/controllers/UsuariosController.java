@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -26,6 +27,11 @@ public class UsuariosController {
         if (repository.existsById(id)) {
             repository.deleteById(id);
         }
+    }
+
+    @GetMapping(value = "usuarios/{id}")
+    public Optional<UsuarioModel> getUsuario(@PathVariable("id") Integer id) {
+        return repository.findById(id).stream().findFirst();
     }
 
     @PutMapping(value = "/usuarios/{id}")
