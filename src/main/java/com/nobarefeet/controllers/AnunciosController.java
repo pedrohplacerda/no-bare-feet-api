@@ -31,6 +31,11 @@ public class AnunciosController {
         return anuncioModelList.stream().filter(anuncioModel -> Objects.equals(anuncioModel.getAtivo(), 1)).collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/anuncios/{id}")
+    public AnuncioModel buscarAnuncioPorId(@PathVariable Integer id) {
+        return repository.findByIdAnuncio(id);
+    }
+
     @DeleteMapping(value = "/anuncios/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarAnuncio(@PathVariable("id") Integer idAnuncio) {
