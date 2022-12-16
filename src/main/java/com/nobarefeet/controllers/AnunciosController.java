@@ -52,11 +52,47 @@ public class AnunciosController {
             if (Objects.nonNull(anuncioModel.getTitulo())) {
                 anuncioModelASerAlterado.setTitulo(anuncioModel.getTitulo());
             }
+            if (Objects.nonNull(anuncioModel.getDescricao())) {
+                anuncioModelASerAlterado.setDescricao(anuncioModel.getDescricao());
+            }
+            if (Objects.nonNull(anuncioModel.getCondicao())) {
+                anuncioModelASerAlterado.setCondicao(anuncioModel.getCondicao());
+            }
+            if (Objects.nonNull(anuncioModel.getImg1())) {
+                anuncioModelASerAlterado.setImg1(anuncioModel.getImg1());
+            }
+            if (Objects.nonNull(anuncioModel.getImg2())) {
+                anuncioModelASerAlterado.setImg2(anuncioModel.getImg2());
+            }
+            if (Objects.nonNull(anuncioModel.getImg3())) {
+                anuncioModelASerAlterado.setImg3(anuncioModel.getImg3());
+            }
+            if (Objects.nonNull(anuncioModel.getImg4())) {
+                anuncioModelASerAlterado.setImg4(anuncioModel.getImg4());
+            }
+            if (Objects.nonNull(anuncioModel.getCor())) {
+                anuncioModelASerAlterado.setCor(anuncioModel.getCor());
+            }
+            if (Objects.nonNull(anuncioModel.getModelo())) {
+                anuncioModelASerAlterado.setModelo(anuncioModel.getModelo());
+            }
+            if (Objects.nonNull(anuncioModel.getTipoProduto())) {
+                anuncioModelASerAlterado.setTipoProduto(anuncioModel.getTipoProduto());
+            }
+            if (Objects.nonNull(anuncioModel.getTamanho())) {
+                anuncioModelASerAlterado.setTamanho(anuncioModel.getTamanho());
+            }
+            if (Objects.nonNull(anuncioModel.getAceitaTroca())) {
+                anuncioModelASerAlterado.setAceitaTroca(anuncioModel.getAceitaTroca());
+            }
             if (Objects.nonNull(anuncioModel.getAtivo())) {
                 anuncioModelASerAlterado.setAtivo(anuncioModel.getAtivo());
             }
-            if (Objects.nonNull(anuncioModel.getDescricao())) {
-                anuncioModelASerAlterado.setDescricao(anuncioModel.getDescricao());
+            if (Objects.nonNull(anuncioModel.getMarcaProduto())) {
+                anuncioModelASerAlterado.setMarcaProduto(anuncioModel.getMarcaProduto());
+            }
+            if (Objects.nonNull(anuncioModel.getPreco())) {
+                anuncioModelASerAlterado.setPreco(anuncioModel.getPreco());
             }
             return repository.save(anuncioModelASerAlterado);
         }
