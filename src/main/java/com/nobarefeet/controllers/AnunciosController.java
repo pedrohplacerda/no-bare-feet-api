@@ -31,6 +31,11 @@ public class AnunciosController {
         return anuncioModelList.stream().filter(anuncioModel -> Objects.equals(anuncioModel.getAtivo(), 1)).collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/anuncios/buscar")
+    public List<AnuncioModel> searchAnuncios(@RequestParam() String query) {
+        return repository.searchAnuncios(query);
+    }
+
     @GetMapping(value = "/anuncios/{id}")
     public AnuncioModel buscarAnuncioPorId(@PathVariable Integer id) {
         return repository.findByIdAnuncio(id);
